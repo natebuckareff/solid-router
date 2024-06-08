@@ -611,7 +611,7 @@ const getTodo = cache(async (id: number) => {
 
 const updateTodo = action(async (todo: Todo) => {
   await updateTodo(todo.id, todo);
-  reload({ revalidate: getTodo.keyFor(id) })
+  throw reload({ revalidate: getTodo.keyFor(id) });
 })
 ```
 
